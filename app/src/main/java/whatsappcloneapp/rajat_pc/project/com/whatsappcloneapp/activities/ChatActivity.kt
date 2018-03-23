@@ -92,12 +92,12 @@ class ChatActivity : AppCompatActivity() {
                                         var displayName = data!!.child("display_name").value.toString()
 
                                         viewHolder.messengerTextView!!.text =
-                                                "$displayName wrote...."
+                                                "I wrote...."
 
                                         Picasso.with(viewHolder.profileImageView!!.context)
                                                 .load(imageUrl)
                                                 .placeholder(R.drawable.profile_img)
-                                                .into(viewHolder.profileImageView)
+                                                .into(viewHolder.profileImageViewRight)
 
                                     }
 
@@ -120,14 +120,15 @@ class ChatActivity : AppCompatActivity() {
                                     override fun onDataChange(data: DataSnapshot?) {
 
                                         var imageUrl = data!!.child("thumb_image").value.toString()
-                                        var display_name = data!!.child("display_name").value.toString()
+                                        var displayName = data!!.child("display_name").value.toString()
 
-                                        viewHolder.messengerTextView!!.text = display_name.toString()
+                                        viewHolder.messengerTextView!!.text =
+                                                "$displayName wrote"
 
                                         Picasso.with(viewHolder.profileImageView!!.context)
                                                 .load(imageUrl)
                                                 .placeholder(R.drawable.profile_img)
-                                                .into(viewHolder.profileImageViewRight)
+                                                .into(viewHolder.profileImageView)
 
                                     }
 
